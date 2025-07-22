@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OCR App</title>
+    <style>
+    img { max-width: 300px; display: block; margin-bottom: 10px; }
+    textarea { width: 100%; height: 200px; }
+    </style>
+</head>
+<body>
+    <h1>OCR App</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" onchange="previewImage(event)">
+        <button type="submit">Extract</button>
+    </form>
+    <div id="preview"></div>
+    {% if text %}
+    <h2>Extracted Text</h2>
+    <textarea id="output" readonly>{{ text }}</textarea>
+    <button onclick="copyText()">Copy</button>
+    {% endif %}
+<script>
+function previewImage(event) {
+    var output = document.getElementById('preview');
+    output.innerHTML = '';
+    var img = document.createElement('img');
+    img.src = URL.createObjectURL(event.target.files[0]);
+    output.appendChild(img);
+}
+function copyText() {
+    var text = document.getElementById('output');
+    text.select();
+    document.execCommand('copy');
+}
+</script>
+</body>
+</html>
