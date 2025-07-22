@@ -27,6 +27,7 @@ python app.py
 
 3. Open `http://localhost:5000` in your browser.
 4. Upload an image, preview it, and click **Extract** to display the text. Use the **Copy** button to copy the text to your clipboard.
+5. Uploaded images are stored in `static/uploads`.
 
 ## Note
 

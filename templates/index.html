@@ -15,6 +15,9 @@
         <button type="submit">Extract</button>
     </form>
     <div id="preview"></div>
+    {% if image_url %}
+    <img src="{{ image_url }}" alt="Uploaded image">
+    {% endif %}
     {% if text %}
     <h2>Extracted Text</h2>
     <textarea id="output" readonly>{{ text }}</textarea>
